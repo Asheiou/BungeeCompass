@@ -1,0 +1,13 @@
+name: BungeeCompass
+main: uk.asheiou.bungeecompass.BungeeCompass
+version: 1.0-SNAPSHOT
+author: Asheiou
+commands:
+  givecompass:
+    description: Receive a server compass
+    usage: /<command>
+    permission: bungeecompass.givecompass
+    permission-message: You don't have bungeecompass.givecompass.
+permissions:
+  bungeecompass.givecompass:
+    description: Gives access to /givecompass
