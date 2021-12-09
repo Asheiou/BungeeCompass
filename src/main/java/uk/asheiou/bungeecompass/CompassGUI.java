@@ -22,7 +22,7 @@ public class CompassGUI implements InventoryProvider {
 
     @Override
     public void init(Player player, InventoryContents inventoryContents) {
-        
+
     }
 
     @Override
