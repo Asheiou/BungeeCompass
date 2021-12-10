@@ -14,7 +14,7 @@ public class MenuCommandExecutor extends CompassGUI implements CommandExecutor {
             if (sender instanceof ConsoleCommandSender) {
                 sender.sendMessage("This is a player command!");
             } else {
-                CompassGui.open((Player) sender);
+                CompassGui.open((Player) sender); // open menu
                 return true;
             }
         }

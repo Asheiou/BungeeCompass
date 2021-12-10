@@ -14,7 +14,7 @@ public class GiveCompassCommandExecutor implements CommandExecutor {
             if(sender instanceof Player) {
                 Player player = (Player) sender;
                 ItemStack compass = new CompassItemStack().getCompass();
-                player.getInventory().addItem(compass);
+                player.getInventory().addItem(compass); // Give compass
                 player.sendMessage(ChatColor.AQUA+"Compass given successfully.");
                 return true;
             } else {

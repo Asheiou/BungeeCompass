@@ -12,14 +12,11 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class PlayerInteractEventListener extends CompassGUI implements Listener {
-    private Plugin plugin;
-    public PlayerInteractEventListener(Plugin plugin) { this.plugin = plugin; }
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerUse(PlayerInteractEvent event) {
         if (event.getHand() == EquipmentSlot.OFF_HAND) { return; }
         Player player = event.getPlayer();
-        plugin.getLogger().info("DEBUG: PIE INIT.");
-        if (new CompassComparison().compare(player.getInventory().getItemInMainHand())) {
+        if (new CompassComparison().compare(player.getInventory().getItemInMainHand())) { // Make sure names match
             CompassGui.open(player);
         }
     }

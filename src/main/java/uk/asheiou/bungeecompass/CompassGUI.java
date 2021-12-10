@@ -7,7 +7,6 @@ import fr.minuskube.inv.SmartInventory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -15,12 +14,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import javax.tools.JavaCompiler;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.UUID;
 
 public class CompassGUI implements InventoryProvider {
@@ -35,21 +31,21 @@ public class CompassGUI implements InventoryProvider {
     @Override
     public void init(Player player, InventoryContents contents) {
 
-        JavaPlugin plugin = JavaPlugin.getProvidingPlugin(BungeeCompass.class);
+        JavaPlugin plugin = JavaPlugin.getProvidingPlugin(BungeeCompass.class); // Get plugin message
 
-        ItemStack borderGlass = new ItemStack(Material.WHITE_STAINED_GLASS_PANE);
+        ItemStack borderGlass = new ItemStack(Material.WHITE_STAINED_GLASS_PANE); // White borders
         ItemMeta borderGlassMeta = borderGlass.getItemMeta();
-        borderGlassMeta.setDisplayName(ChatColor.DARK_GRAY + " ");
+        borderGlassMeta.setDisplayName(ChatColor.DARK_GRAY + " "); // remove name
         borderGlass.setItemMeta(borderGlassMeta);
 
         contents.fillBorders(ClickableItem.empty(borderGlass));
 
         ItemStack skinsItem = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta skinsMeta = (SkullMeta) skinsItem.getItemMeta();
-        skinsMeta.setOwningPlayer(Bukkit.getOfflinePlayer(UUID.fromString("4f6a3a30-7663-405b-a2b3-8aa4667057c9")));
-        skinsItem.setItemMeta(skinsMeta);
+        skinsMeta.setOwningPlayer(Bukkit.getOfflinePlayer(UUID.fromString("4f6a3a30-7663-405b-a2b3-8aa4667057c9"))); // CubeBuildersGirl UUID
+        skinsItem.setItemMeta(skinsMeta); // Set CBG's head
 
-        LinkedHashMap<String[], ItemStack> items = new LinkedHashMap<>();
+        LinkedHashMap<String[], ItemStack> items = new LinkedHashMap<>(); // list of items
         items.put(new String[]{ChatColor.AQUA+ "Hub", "hub"}, new ItemStack(Material.COMPASS));
         items.put(new String[]{ChatColor.GOLD+"Creative", "creative"}, new ItemStack(Material.PEONY));
         items.put(new String[]{ChatColor.GREEN+"Survival", "survival"}, new ItemStack(Material.DIAMOND_PICKAXE));
@@ -64,21 +60,19 @@ public class CompassGUI implements InventoryProvider {
             itemMeta.setDisplayName(i[0]);
             itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
             itemStack.setItemMeta(itemMeta);
-            contents.add(ClickableItem.of(itemStack, e -> {
+            contents.add(ClickableItem.of(itemStack, e -> { // add to inventory
                 ByteArrayOutputStream b = new ByteArrayOutputStream();
                 DataOutputStream out = new DataOutputStream(b);
                 try {
-                    out.writeUTF("Connect");
+                    out.writeUTF("Connect"); // Connect channel
                     out.writeUTF(i[1]);
                 } catch (Exception ex) { plugin.getLogger().info(ex.getMessage()); }
-                player.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
+                player.sendPluginMessage(plugin, "BungeeCord", b.toByteArray()); // send message
             }));
         }
 
     }
 
     @Override
-    public void update(Player player, InventoryContents inventoryContents) {
-        //TODO
-    }
+    public void update(Player player, InventoryContents inventoryContents) {} // no updating of inv allowed
 }
