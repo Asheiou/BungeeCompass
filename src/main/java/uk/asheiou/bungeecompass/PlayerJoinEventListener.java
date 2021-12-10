@@ -1,5 +1,6 @@
 package uk.asheiou.bungeecompass;
 
+import hk.siggi.bukkit.plugcubebuildersin.PlugCubeBuildersIn;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -11,12 +12,20 @@ public class PlayerJoinEventListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOW)
     public void onPlayerJoin(PlayerJoinEvent event) {
+        switch (PlugCubeBuildersIn.getInstance().getServerName()) {
+            case "hub":
+            case "skins":
+            case "minigames":
+                break;
+            default:
+                return; // if not defined servers break
+        }
         PlayerInventory playerInventory = event.getPlayer().getInventory();
         for(ItemStack i : playerInventory) {
-            if(i == null) { continue; } // ignore empty item slots
-            if(new CompassComparison().compare(i)) { return; } // if true they already have the compass
+            if(i == null) continue; // ignore empty item slots
+            if(new CompassComparison().compare(i)) return; // if true they already have the compass
         }
         ItemStack compass = new CompassItemStack().getCompass();
-        playerInventory.addItem(compass);
+        playerInventory.addItem(compass); //give compass
     }
 }
