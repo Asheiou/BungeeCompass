@@ -10,7 +10,7 @@ public class PlayerDropItemEventListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOW)
     public void onPlayerDropItem(PlayerDropItemEvent event) {
-        if(new CompassComparison().compare(event.getItemDrop().getItemStack())) {
+        if(CompassComparison.compare(event.getItemDrop().getItemStack())) {
             event.setCancelled(true); // Undo player's drop
             event.getPlayer().sendMessage(ChatColor.RED+"You can't drop this!");
         }

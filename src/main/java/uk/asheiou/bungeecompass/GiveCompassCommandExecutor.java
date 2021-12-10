@@ -10,18 +10,14 @@ import org.bukkit.inventory.ItemStack;
 public class GiveCompassCommandExecutor implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(cmd.getName().equalsIgnoreCase("givecompass")) {
-            if(sender instanceof Player) {
-                Player player = (Player) sender;
-                ItemStack compass = new CompassItemStack().getCompass();
-                player.getInventory().addItem(compass); // Give compass
-                player.sendMessage(ChatColor.AQUA+"Compass given successfully.");
-                return true;
-            } else {
-                sender.sendMessage("This command cannot be run from the console.");
-                return false;
-            }
+        if(sender instanceof Player player) {
+            ItemStack compass = CompassItemStack.getCompass();
+            player.getInventory().addItem(compass); // Give compass
+            player.sendMessage(ChatColor.AQUA+"Compass given successfully.");
+            return true;
+        } else {
+            sender.sendMessage("This command cannot be run from the console.");
+            return false;
         }
-        return false;
     }
 }

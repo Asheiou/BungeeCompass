@@ -9,12 +9,12 @@ public final class BungeeCompass extends JavaPlugin {
         // Register BungeeCord Plugin Channel
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         getLogger().info("BungeeCord PluginChannel registered.");
-        // Registering events
+        // Register events
         getServer().getPluginManager().registerEvents(new PlayerInteractEventListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDropItemEventListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinEventListener(), this);
         getLogger().info("Events registered.");
-        // Registering commands
+        // Register commands
         this.getCommand("givecompass").setExecutor(new GiveCompassCommandExecutor());
         this.getCommand("menu").setExecutor(new MenuCommandExecutor());
         getLogger().info("Load complete.");

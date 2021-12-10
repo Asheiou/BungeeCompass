@@ -43,7 +43,7 @@ public class CompassGUI implements InventoryProvider {
         ItemStack skinsItem = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta skinsMeta = (SkullMeta) skinsItem.getItemMeta();
         skinsMeta.setOwningPlayer(Bukkit.getOfflinePlayer(UUID.fromString("4f6a3a30-7663-405b-a2b3-8aa4667057c9"))); // CubeBuildersGirl UUID
-        skinsItem.setItemMeta(skinsMeta); // Set CBG's head
+        skinsItem.setItemMeta(skinsMeta); // Set CBG's skin on head
 
         LinkedHashMap<String[], ItemStack> items = new LinkedHashMap<>(); // list of items
         items.put(new String[]{ChatColor.AQUA+ "Hub", "hub"}, new ItemStack(Material.COMPASS));

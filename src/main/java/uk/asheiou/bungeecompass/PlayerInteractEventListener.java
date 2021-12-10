@@ -12,7 +12,7 @@ public class PlayerInteractEventListener extends CompassGUI implements Listener 
     public void onPlayerUse(PlayerInteractEvent event) {
         if (event.getHand() == EquipmentSlot.OFF_HAND) { return; }
         Player player = event.getPlayer();
-        if (new CompassComparison().compare(player.getInventory().getItemInMainHand())) { // Make sure names match
+        if (CompassComparison.compare(player.getInventory().getItemInMainHand())) { // Make sure names match
             CompassGui.open(player);
         }
     }

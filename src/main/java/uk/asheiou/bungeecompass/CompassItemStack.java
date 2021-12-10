@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class CompassItemStack {
-    public ItemStack getCompass() {
+    public static ItemStack getCompass() {
         ItemStack compass = new ItemStack(Material.COMPASS, 1);
         compass.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 1); // Random enchant not likely to be useful
         ItemMeta compassItemMeta = compass.getItemMeta();

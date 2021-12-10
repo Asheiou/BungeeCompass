@@ -23,9 +23,9 @@ public class PlayerJoinEventListener implements Listener {
         PlayerInventory playerInventory = event.getPlayer().getInventory();
         for(ItemStack i : playerInventory) {
             if(i == null) continue; // ignore empty item slots
-            if(new CompassComparison().compare(i)) return; // if true they already have the compass
+            if(CompassComparison.compare(i)) return; // if true they already have the compass
         }
-        ItemStack compass = new CompassItemStack().getCompass();
+        ItemStack compass = CompassItemStack.getCompass();
         playerInventory.addItem(compass); //give compass
     }
 }
