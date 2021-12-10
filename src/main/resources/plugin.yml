@@ -3,7 +3,7 @@ main: uk.asheiou.bungeecompass.BungeeCompass
 version: 1.0.1-SNAPSHOT
 author: Asheiou
 api-version: 1.17
-depend: [SmartInvs]
+depend: [SmartInvs, PlugCubeBuildersIn]
 commands:
   givecompass:
     description: Receive a server compass
