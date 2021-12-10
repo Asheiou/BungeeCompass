@@ -1,13 +1,22 @@
 name: BungeeCompass
 main: uk.asheiou.bungeecompass.BungeeCompass
-version: 1.0-SNAPSHOT
+version: 1.0.1-SNAPSHOT
 author: Asheiou
+api-version: 1.17
+depend: [SmartInvs]
 commands:
   givecompass:
     description: Receive a server compass
     usage: /<command>
     permission: bungeecompass.givecompass
     permission-message: You don't have bungeecompass.givecompass.
+  menu:
+    description: Opens the compass menu
+    usage: /<command>
+    permission: bungeecompass.menu
+    permission-message: You don't have bungeecompass.menu.
 permissions:
   bungeecompass.givecompass:
     description: Gives access to /givecompass
+  bungeecompass.menu:
+    description: Gives access to /menu
