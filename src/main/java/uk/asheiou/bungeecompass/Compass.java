@@ -7,7 +7,8 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class CompassItemStack {
+public class Compass {
+    // Class for compass-item-related function //
     public static ItemStack getCompass() {
         ItemStack compass = new ItemStack(Material.COMPASS, 1);
         compass.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 1); // Random enchant not likely to be useful
@@ -16,5 +17,9 @@ public class CompassItemStack {
         compassItemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS); // Glow without enchants appearing
         compass.setItemMeta(compassItemMeta);
         return compass;
+        }
+    public static boolean isCompass(ItemStack itemToCompare) {
+        return(itemToCompare.isSimilar(getCompass()));
     }
+
 }

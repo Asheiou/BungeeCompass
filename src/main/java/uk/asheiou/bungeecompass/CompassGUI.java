@@ -4,14 +4,13 @@ import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.content.InventoryContents;
 import fr.minuskube.inv.content.InventoryProvider;
 import fr.minuskube.inv.SmartInventory;
-import org.bukkit.Bukkit;
+import hk.siggi.bukkit.plugcubebuildersin.PlugCubeBuildersIn;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.ByteArrayOutputStream;
@@ -40,10 +39,7 @@ public class CompassGUI implements InventoryProvider {
 
         contents.fillBorders(ClickableItem.empty(borderGlass));
 
-        ItemStack skinsItem = new ItemStack(Material.PLAYER_HEAD);
-        SkullMeta skinsMeta = (SkullMeta) skinsItem.getItemMeta();
-        skinsMeta.setOwningPlayer(Bukkit.getOfflinePlayer(UUID.fromString("4f6a3a30-7663-405b-a2b3-8aa4667057c9"))); // CubeBuildersGirl UUID
-        skinsItem.setItemMeta(skinsMeta); // Set CBG's skin on head
+        ItemStack skinsItem = PlugCubeBuildersIn.getInstance().createSkull((UUID) UUID.fromString("4f6a3a30-7663-405b-a2b3-8aa4667057c9"));
 
         LinkedHashMap<String[], ItemStack> items = new LinkedHashMap<>(); // list of items
         items.put(new String[]{ChatColor.AQUA+ "Hub", "hub"}, new ItemStack(Material.COMPASS));
