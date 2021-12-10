@@ -8,12 +8,13 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
 public class PlayerInteractEventListener extends CompassGUI implements Listener {
-    @EventHandler(priority = EventPriority.HIGH)
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerUse(PlayerInteractEvent event) {
         if (event.getHand() == EquipmentSlot.OFF_HAND) { return; }
         Player player = event.getPlayer();
         if (Compass.isCompass(player.getInventory().getItemInMainHand())) { // Make sure names match
             CompassGui.open(player);
+            event.setCancelled(true);
         }
     }
 }
