@@ -1,6 +1,6 @@
 name: BungeeCompass
 main: uk.asheiou.bungeecompass.BungeeCompass
-version: 1.0.1-SNAPSHOT
+version: 1.0.1
 author: Asheiou
 api-version: 1.17
 depend:
