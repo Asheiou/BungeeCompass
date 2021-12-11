@@ -7,6 +7,7 @@ import fr.minuskube.inv.SmartInventory;
 import hk.siggi.bukkit.plugcubebuildersin.PlugCubeBuildersIn;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -18,10 +19,10 @@ import java.io.DataOutputStream;
 import java.util.LinkedHashMap;
 import java.util.UUID;
 
-public class CompassGUI implements InventoryProvider {
-    public static final SmartInventory CompassGui = SmartInventory.builder()
+public class ServersMenu implements InventoryProvider {
+    public static final SmartInventory SERVERSMENU = SmartInventory.builder()
             .id("compassGui")
-            .provider(new CompassGUI())
+            .provider(new ServersMenu())
             .size(3,9)
             .title("Server Compass")
             .build();
@@ -39,7 +40,8 @@ public class CompassGUI implements InventoryProvider {
 
         contents.fillBorders(ClickableItem.empty(borderGlass));
 
-        ItemStack skinsItem = PlugCubeBuildersIn.getInstance().createSkull((UUID) UUID.fromString("4f6a3a30-7663-405b-a2b3-8aa4667057c9"));
+        ItemStack skinsItem = PlugCubeBuildersIn.getInstance().createSkull(UUID.fromString("4f6a3a30-7663-405b-a2b3-8aa4667057c9"));
+        //ItemStack skinsItem = new ItemStack(Material.PLAYER_HEAD);
 
         LinkedHashMap<String[], ItemStack> items = new LinkedHashMap<>(); // list of items
         items.put(new String[]{ChatColor.AQUA+ "Hub", "hub"}, new ItemStack(Material.COMPASS));
