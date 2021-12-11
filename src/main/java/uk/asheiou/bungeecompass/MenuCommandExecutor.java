@@ -5,11 +5,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class MenuCommandExecutor extends CompassGUI implements CommandExecutor {
+public class MenuCommandExecutor extends ServersMenu implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] strings) {
         if (sender instanceof Player) {
-            CompassGui.open((Player) sender); // open menu
+            SERVERSMENU.open((Player) sender); // open menu
             return true;
         }
         return false;
