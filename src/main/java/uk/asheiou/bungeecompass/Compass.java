@@ -20,9 +20,8 @@ public class Compass {
         compass.setItemMeta(compassItemMeta);
         return compass;
         }
-    public static boolean isCompass(ItemStack itemToCompare) {
-        return(itemToCompare.isSimilar(getCompass()));
-    }
+    public static boolean isCompass(ItemStack itemToCompare) { return itemToCompare.isSimilar(getCompass()); }
+
     public static boolean hasCompass(Player player) {
         PlayerInventory playerInventory = player.getInventory();
         for(ItemStack i : playerInventory) {
