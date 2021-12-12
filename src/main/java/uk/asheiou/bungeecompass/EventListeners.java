@@ -1,6 +1,6 @@
 package uk.asheiou.bungeecompass;
 
-import hk.siggi.bukkit.plugcubebuildersin.PlugCubeBuildersIn;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,21 +13,15 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class EventListeners extends ServersMenu implements Listener {
+    private final JavaPlugin plugin;
+    public EventListeners(JavaPlugin plugin) { this.plugin = plugin; }
 
     public void spawnHandler(Player player) {
-        switch (PlugCubeBuildersIn.getInstance().getServerName()) {
-            case "hub":
-            case "skins":
-            case "minigames":
-            case "creative":
-                break;
-            default:
-                return; // if not defined servers break
-        }
         if(Compass.hasCompass(player)) return;
-        player.getInventory().addItem(Compass.getCompass()); //give compass
+        if(plugin.getConfig().getBoolean("give-compass-on-login")) player.getInventory().addItem(Compass.getCompass()); //give compass
     }
 
     @EventHandler
@@ -38,8 +32,14 @@ public class EventListeners extends ServersMenu implements Listener {
     @EventHandler(priority = EventPriority.LOW)
     public void onPlayerDropItem(PlayerDropItemEvent event) {
         if(Compass.isCompass(event.getItemDrop().getItemStack())) {
+            Player player = event.getPlayer();
             event.setCancelled(true); // Undo player's drop
-            event.getPlayer().sendMessage(ChatColor.RED+"You can't drop this!");
+            if(plugin.getConfig().getBoolean("block-compass-drop")) {
+                player.sendMessage(ChatColor.RED+"You can't drop this!");
+                return;
+            }
+            Bukkit.getScheduler().runTask(plugin, () -> player.getInventory().removeItem(Compass.getCompass()));
+            player.sendMessage(ChatColor.AQUA+"Compass removed. You can get it back by running /givecompass.");
         }
     }
 
