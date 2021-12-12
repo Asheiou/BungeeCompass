@@ -7,7 +7,6 @@ import fr.minuskube.inv.SmartInventory;
 import hk.siggi.bukkit.plugcubebuildersin.PlugCubeBuildersIn;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -16,7 +15,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.UUID;
 
 public class ServersMenu implements InventoryProvider {
@@ -44,19 +45,22 @@ public class ServersMenu implements InventoryProvider {
         //ItemStack skinsItem = new ItemStack(Material.PLAYER_HEAD);
 
         LinkedHashMap<String[], ItemStack> items = new LinkedHashMap<>(); // list of items
-        items.put(new String[]{ChatColor.AQUA+ "Hub", "hub"}, new ItemStack(Material.COMPASS));
-        items.put(new String[]{ChatColor.GOLD+"Creative", "creative"}, new ItemStack(Material.PEONY));
-        items.put(new String[]{ChatColor.GREEN+"Survival", "survival"}, new ItemStack(Material.DIAMOND_PICKAXE));
-        items.put(new String[]{ChatColor.RED+"Factions", "factions"}, new ItemStack(Material.DIAMOND_SWORD));
-        items.put(new String[]{ChatColor.YELLOW+"Skyblock", "skyblock"}, new ItemStack(Material.OAK_SAPLING));
-        items.put(new String[]{ChatColor.LIGHT_PURPLE+"Minigames", "minigames"}, new ItemStack(Material.WOODEN_HOE));
-        items.put(new String[]{ChatColor.DARK_AQUA+"Skin Wardrobe", "skins"}, skinsItem);
+        items.put(new String[]{ChatColor.AQUA+ "Hub", "hub", "The place where all the servers meet!"}, new ItemStack(Material.COMPASS));
+        items.put(new String[]{ChatColor.GOLD+"Creative", "creative", "Infinite flat creative mode worlds!"}, new ItemStack(Material.PEONY));
+        items.put(new String[]{ChatColor.GREEN+"Survival", "survival", "Vanilla SMP with GriefPrevention claims!"}, new ItemStack(Material.DIAMOND_PICKAXE));
+        items.put(new String[]{ChatColor.RED+"Factions", "factions", "Form alliances, start wars, rise to the top!"}, new ItemStack(Material.DIAMOND_SWORD));
+        items.put(new String[]{ChatColor.YELLOW+"Skyblock", "skyblock", "An island in a world all to yourself!"}, new ItemStack(Material.OAK_SAPLING));
+        items.put(new String[]{ChatColor.LIGHT_PURPLE+"Minigames", "minigames", "Fast-paced games for you and your friends!"}, new ItemStack(Material.WOODEN_HOE));
+        items.put(new String[]{ChatColor.DARK_AQUA+"Skin Wardrobe", "skins", "Change skins quickly and conveniently!"}, skinsItem);
 
         for (String[] i : items.keySet()) {
             ItemStack itemStack = items.get(i);
             ItemMeta itemMeta = itemStack.getItemMeta();
             itemMeta.setDisplayName(i[0]);
             itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+            List<String> lore = new ArrayList<>();
+            lore.add(i[2]);
+            itemMeta.setLore(lore);
             itemStack.setItemMeta(itemMeta);
             contents.add(ClickableItem.of(itemStack, e -> { // add to inventory
                 ByteArrayOutputStream b = new ByteArrayOutputStream();
