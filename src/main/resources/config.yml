@@ -1,2 +1,2 @@
-give-compass-on-login: true
-block-compass-drop: true
+give-compass-on-login: false
+block-compass-drop: false
