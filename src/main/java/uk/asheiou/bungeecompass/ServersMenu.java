@@ -25,7 +25,7 @@ public class ServersMenu implements InventoryProvider {
             .id("compassGui")
             .provider(new ServersMenu())
             .size(3,9)
-            .title("Server Compass")
+            .title("Network Navigator")
             .build();
 
     @Override
