@@ -8,11 +8,14 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class EventListeners extends ServersMenu implements Listener {
@@ -62,6 +65,21 @@ public class EventListeners extends ServersMenu implements Listener {
             SERVERSMENU.open(player);
             event.setCancelled(true);
         }
+    }
+
+    @EventHandler
+    public void onCraftItem(CraftItemEvent event) {
+        CraftingInventory inventory = event.getInventory();
+        boolean compassInInventory = false; // Default false
+        for(ItemStack itemStack : inventory.getMatrix()){
+            if(Compass.isCompass(itemStack)) { // Check for compass in crafting table
+                compassInInventory = true;
+                break;
+            }
+        }
+        if(!compassInInventory) return;
+        event.setCancelled(true);
+        event.getWhoClicked().sendMessage(ChatColor.RED+"You can't use the Server Compass as a crafting material!");
     }
 
 }
