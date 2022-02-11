@@ -15,8 +15,8 @@ creative:
     material: PEONY
     displayname: "&6Creative"
     lore:
-      - Infinite, flat
-      - creative mode worlds!
+      - Infinite, flat, creative
+      - mode worlds!
   type: single
 
 survival:
