@@ -19,19 +19,21 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import static uk.asheiou.bungeecompass.ServersMenu.SERVERSMENU;
+import static uk.asheiou.bungeecompass.MainMenu.SERVERSMENU;
 
 public class NewOldServersMenu implements InventoryProvider {
-    private String server = null;
+    private String new_server = null;
+    private String old_server = null;
 
-    public NewOldServersMenu(String s) {
-        server = s;
+    public NewOldServersMenu(String n, String o) {
+        new_server = n;
+        old_server = o;
     }
 
-    public static SmartInventory getInventory(String server) {
+    public static SmartInventory getInventory(String server, String old) {
         return SmartInventory.builder()
                 .id("menuServersMenu")
-                .provider(new NewOldServersMenu(server))
+                .provider(new NewOldServersMenu(server, old))
                 .size(3, 9)
                 .title("Network Navigator")
                 .build();
@@ -57,17 +59,17 @@ public class NewOldServersMenu implements InventoryProvider {
         },new ItemStack(Material.BARRIER));
 
         items.put(new String[]{
-                ChatColor.GOLD + "NEW" + ChatColor.RESET + " " + StringUtils.capitalize(server),
+                ChatColor.GOLD + "NEW" + ChatColor.RESET + " " + StringUtils.capitalize(new_server),
                 "Try all the new features!",
                 "1","4",
-                ""
+                new_server
         },new ItemStack(Material.NETHER_STAR));
 
         items.put(new String[]{
-                ChatColor.RED + "Old " + StringUtils.capitalize(server),
+                ChatColor.RED + "Old " + StringUtils.capitalize(new_server),
                 "Existing players only.",
                 "1","7",
-                "old"
+                old_server
         }, new ItemStack(Material.RED_MUSHROOM));
 
         for (String[] i : items.keySet()) {
@@ -90,7 +92,7 @@ public class NewOldServersMenu implements InventoryProvider {
                     DataOutputStream out = new DataOutputStream(b);
                     try {
                         out.writeUTF("Connect"); // Connect channel
-                        out.writeUTF(server+i[4]);
+                        out.writeUTF(i[4]);
                     } catch (Exception ex) {
                         plugin.getLogger().info(ex.getMessage());
                     }

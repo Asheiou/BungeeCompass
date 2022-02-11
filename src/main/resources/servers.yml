@@ -1,0 +1,66 @@
+config:
+  main-menu-size: 3
+
+hub:
+  item:
+    material: COMPASS
+    displayname: "&bHub"
+    lore:
+      - The place where all
+      - the servers meet!
+  type: single
+
+creative:
+  item:
+    material: PEONY
+    displayname: "&6Creative"
+    lore:
+      - Infinite, flat
+      - creative mode worlds!
+  type: single
+
+survival:
+  item:
+    material: DIAMOND_PICKAXE
+    displayname: "&aSurvival"
+    lore:
+      - Vanilla SMP with
+      - GriefPrevention claims!
+  type: single
+
+factions:
+  item:
+    material: DIAMOND_SWORD
+    displayname: "&cFactions"
+    lore:
+      - Form alliances, start wars,
+      - and rise to the top!
+  type: single
+
+skyblock:
+  item:
+    material: OAK_SAPLING
+    displayname: "&eSkyblock"
+    lore:
+      - An island in a world
+      - all to yourself!
+  type: single
+
+minigames:
+  item:
+    material: WOODEN_HOE
+    displayname: "&dMinigames"
+    lore:
+      - Fast-paced games for you
+      - and your friends!
+  type: single
+
+skins:
+  item:
+    material: PLAYER_HEAD
+    uuid: 4f6a3a30-7663-405b-a2b3-8aa4667057c9
+    displayname: "&3Skin Wardrobe"
+    lore:
+      - Change skins quickly
+      - and conveniently!
+  type: single

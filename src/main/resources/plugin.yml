@@ -17,8 +17,15 @@ commands:
     usage: /<command>
     permission: bungeecompass.menu
     permission-message: You don't have bungeecompass.menu.
+  reloadcompass:
+    description: Reloads the BungeeCompass config
+    usage: /<command>
+    permission: bungeecompass.reload
+    permission-message: You don't have bungeecompass.reload.
 permissions:
   bungeecompass.givecompass:
     description: Gives access to /givecompass
   bungeecompass.menu:
     description: Gives access to /menu
+  bungeecompass.reload:
+    description: Gives access to /reloadcompass
