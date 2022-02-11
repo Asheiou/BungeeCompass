@@ -10,7 +10,7 @@ public class ReloadCommandExecutor implements CommandExecutor  {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] strings) {
         sender.sendMessage(ChatColor.AQUA+"Starting config reload...");
         JavaPlugin.getProvidingPlugin(BungeeCompass.class).reloadConfig();
-        new ServersConfigAccessor().reloadServersConfig();
+        ServersConfigAccessor.reloadServersConfig();
         sender.sendMessage(ChatColor.GREEN+"Reload complete!");
         return true;
     }

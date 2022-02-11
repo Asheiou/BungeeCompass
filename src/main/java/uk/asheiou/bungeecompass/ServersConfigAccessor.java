@@ -9,11 +9,11 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 
 public class ServersConfigAccessor {
-    File serversConfigFile = null;
-    FileConfiguration serversConfig = null;
-    JavaPlugin plugin = JavaPlugin.getProvidingPlugin(BungeeCompass.class);
+    static File serversConfigFile = null;
+    static FileConfiguration serversConfig = null;
+    static JavaPlugin plugin = JavaPlugin.getProvidingPlugin(BungeeCompass.class);
 
-    public void reloadServersConfig() {
+    public static void reloadServersConfig() {
         if (serversConfigFile == null) {
             serversConfigFile = new File(plugin.getDataFolder(), "servers.yml");
         }
@@ -24,14 +24,14 @@ public class ServersConfigAccessor {
             serversConfig.setDefaults(defConfig);
         }
     }
-    public FileConfiguration getServersConfig() {
+    public static FileConfiguration getServersConfig() {
         if (serversConfig == null) {
             reloadServersConfig();
         }
         return serversConfig;
     }
 
-    public void saveDefaultServersConfig() {
+    public static void saveDefaultServersConfig() {
         if (serversConfigFile == null) {
             serversConfigFile = new File(plugin.getDataFolder(), "servers.yml");
         }

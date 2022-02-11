@@ -27,7 +27,7 @@ public class MainMenu implements InventoryProvider {
     public static final SmartInventory SERVERSMENU = SmartInventory.builder()
             .id("compassGui")
             .provider(new MainMenu())
-            .size(new ServersConfigAccessor().getServersConfig().getInt("config.main-menu-size"),9)
+            .size(ServersConfigAccessor.getServersConfig().getInt("config.main-menu-size"),9)
             .title("Network Navigator")
             .build();
 
@@ -41,7 +41,7 @@ public class MainMenu implements InventoryProvider {
 
         contents.fillBorders(ClickableItem.empty(borderGlass));
 
-        FileConfiguration servers = new ServersConfigAccessor().getServersConfig();
+        FileConfiguration servers = ServersConfigAccessor.getServersConfig();
 
         for(String s : servers.getKeys(false)) {
             if(s.equals("config")) continue;
@@ -59,25 +59,20 @@ public class MainMenu implements InventoryProvider {
             itemMeta.setLore(lore);
             itemStack.setItemMeta(itemMeta);
 
-            switch (servers.getString(s+".type")) {
-                case "single":
-                    contents.add(ClickableItem.of(itemStack, e -> {
-                        ByteArrayOutputStream b = new ByteArrayOutputStream();
-                        DataOutputStream out = new DataOutputStream(b);
-                        try {
-                            out.writeUTF("Connect");
-                            out.writeUTF(s);
-                        } catch (Exception ex) {
-                            plugin.getLogger().info(ex.getMessage());
-                        }
-                        player.sendPluginMessage(plugin, "BungeeCord", b.toByteArray()); // send message
-                    }));
-                    break;
-                case "new-old":
-                    contents.add(ClickableItem.of(itemStack, e -> NewOldServersMenu.getInventory(s,servers.getString(s+".old")).open(player)));
-                    break;
-                default:
-                    contents.add(ClickableItem.empty(new ItemStack(Material.BARRIER)));
+            switch (servers.getString(s + ".type")) {
+                case "single" -> contents.add(ClickableItem.of(itemStack, e -> {
+                    ByteArrayOutputStream b = new ByteArrayOutputStream();
+                    DataOutputStream out = new DataOutputStream(b);
+                    try {
+                        out.writeUTF("Connect");
+                        out.writeUTF(s);
+                    } catch (Exception ex) {
+                        plugin.getLogger().info(ex.getMessage());
+                    }
+                    player.sendPluginMessage(plugin, "BungeeCord", b.toByteArray()); // send message
+                }));
+                case "new-old" -> contents.add(ClickableItem.of(itemStack, e -> NewOldServersMenu.getInventory(s, servers.getString(s + ".old")).open(player)));
+                default -> contents.add(ClickableItem.empty(new ItemStack(Material.BARRIER)));
             }
         }
     }
