@@ -18,7 +18,9 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class EventListeners extends ServersMenu implements Listener {
+import static uk.asheiou.bungeecompass.ServersMenu.SERVERSMENU;
+
+public class EventListeners implements Listener {
     private final JavaPlugin plugin;
     public EventListeners(JavaPlugin plugin) { this.plugin = plugin; }
 

@@ -41,16 +41,61 @@ public class ServersMenu implements InventoryProvider {
         contents.fillBorders(ClickableItem.empty(borderGlass));
 
         ItemStack skinsItem = PlugCubeBuildersIn.getInstance().createSkull(UUID.fromString("4f6a3a30-7663-405b-a2b3-8aa4667057c9"));
-        //ItemStack skinsItem = new ItemStack(Material.PLAYER_HEAD);
 
         LinkedHashMap<String[], ItemStack> items = new LinkedHashMap<>(); // list of items
-        items.put(new String[]{ChatColor.AQUA+ "Hub", "hub", "The place where all", "the servers meet!"}, new ItemStack(Material.COMPASS));
-        items.put(new String[]{ChatColor.GOLD+"Creative", "creative", "Infinite flat creative", "mode worlds!"}, new ItemStack(Material.PEONY));
-        items.put(new String[]{ChatColor.GREEN+"Survival", "survival", "Vanilla SMP with", "GriefPrevention claims!"}, new ItemStack(Material.DIAMOND_PICKAXE));
-        items.put(new String[]{ChatColor.RED+"Factions", "factions", "Form alliances, start wars,", "and rise to the top!"}, new ItemStack(Material.DIAMOND_SWORD));
-        items.put(new String[]{ChatColor.YELLOW+"Skyblock", "skyblock", "An island in a world", "all to yourself!"}, new ItemStack(Material.OAK_SAPLING));
-        items.put(new String[]{ChatColor.LIGHT_PURPLE+"Minigames", "minigames", "Fast-paced games for", "you and your friends!"}, new ItemStack(Material.WOODEN_HOE));
-        items.put(new String[]{ChatColor.DARK_AQUA+"Skin Wardrobe", "skins", "Change skins quickly", "and conveniently!"}, skinsItem);
+        items.put(new String[]{
+                ChatColor.AQUA+"Hub",
+                "hub", "The place where all",
+                "the servers meet!",
+                "single"
+        }, new ItemStack(Material.COMPASS));
+
+        items.put(new String[]{
+                ChatColor.GOLD+"Creative",
+                "creative",
+                "Infinite flat creative",
+                "mode worlds!",
+                "single"
+        }, new ItemStack(Material.PEONY));
+
+        items.put(new String[]{
+                ChatColor.GREEN+"Survival",
+                "survival",
+                "Vanilla SMP with",
+                "GriefPrevention claims!",
+                "menu"
+        }, new ItemStack(Material.DIAMOND_PICKAXE));
+
+        items.put(new String[]{
+                ChatColor.RED+"Factions",
+                "factions",
+                "Form alliances, start wars,",
+                "and rise to the top!",
+                "single"
+        }, new ItemStack(Material.DIAMOND_SWORD));
+
+        items.put(new String[]{
+                ChatColor.YELLOW+"Skyblock",
+                "skyblock",
+                "An island in a world",
+                "all to yourself!",
+                "menu"
+        }, new ItemStack(Material.OAK_SAPLING));
+
+        items.put(new String[]{
+                ChatColor.LIGHT_PURPLE+"Minigames",
+                "minigames",
+                "Fast-paced games for",
+                "you and your friends!",
+                "single"
+        }, new ItemStack(Material.WOODEN_HOE));
+
+        items.put(new String[]{
+                ChatColor.DARK_AQUA+"Skin Wardrobe",
+                "skins", "Change skins quickly",
+                "and conveniently!",
+                "single"
+        }, skinsItem);
 
         for (String[] i : items.keySet()) {
             List<String> lore = new ArrayList<>(); // Add lore :)
@@ -64,17 +109,21 @@ public class ServersMenu implements InventoryProvider {
             itemMeta.setLore(lore);
             itemStack.setItemMeta(itemMeta);
 
-            contents.add(ClickableItem.of(itemStack, e -> { // add to inventory
-                ByteArrayOutputStream b = new ByteArrayOutputStream();
-                DataOutputStream out = new DataOutputStream(b);
-                try {
-                    out.writeUTF("Connect"); // Connect channel
-                    out.writeUTF(i[1]);
-                } catch (Exception ex) { plugin.getLogger().info(ex.getMessage()); }
-                player.sendPluginMessage(plugin, "BungeeCord", b.toByteArray()); // send message
-            }));
+            if (i[4].equals("single")) {
+                contents.add(ClickableItem.of(itemStack, e -> { // add to inventory
+                    ByteArrayOutputStream b = new ByteArrayOutputStream();
+                    DataOutputStream out = new DataOutputStream(b);
+                    try {
+                        out.writeUTF("Connect"); // Connect channel
+                        out.writeUTF(i[1]);
+                    } catch (Exception ex) {
+                        plugin.getLogger().info(ex.getMessage());
+                    }
+                    player.sendPluginMessage(plugin, "BungeeCord", b.toByteArray()); // send message
+                }));
+            }
+            else contents.add(ClickableItem.of(itemStack, e -> NewOldServersMenu.getInventory(i[1]).open(player)));
         }
-
     }
 
     @Override
