@@ -6,6 +6,7 @@ api-version: 1.17
 depend:
   - SmartInvs
   - PlugCubeBuildersIn
+  - NBTTool
 commands:
   givecompass:
     description: Receive a server compass
