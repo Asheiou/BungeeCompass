@@ -1,14 +1,11 @@
 package uk.asheiou.bungeecompass;
 
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import uk.asheiou.bungeecompass.command.GiveCompassCommandExecutor;
+import uk.asheiou.bungeecompass.command.MenuCommandExecutor;
+import uk.asheiou.bungeecompass.command.ReloadCommandExecutor;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.HashMap;
 
 public final class BungeeCompass extends JavaPlugin {
     @Override

@@ -30,4 +30,12 @@ public class Compass {
         }
         return false;
     }
+
+    public static ItemStack getBorderGlass() {
+        ItemStack borderGlass = new ItemStack(Material.WHITE_STAINED_GLASS_PANE); // White borders
+        ItemMeta borderGlassMeta = borderGlass.getItemMeta();
+        borderGlassMeta.setDisplayName(ChatColor.DARK_GRAY + " "); // remove name
+        borderGlass.setItemMeta(borderGlassMeta);
+        return borderGlass;
+    }
 }

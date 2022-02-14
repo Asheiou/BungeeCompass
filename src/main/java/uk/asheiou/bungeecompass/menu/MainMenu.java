@@ -1,4 +1,4 @@
-package uk.asheiou.bungeecompass;
+package uk.asheiou.bungeecompass.menu;
 
 import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.content.InventoryContents;
@@ -7,13 +7,15 @@ import fr.minuskube.inv.SmartInventory;
 import hk.siggi.bukkit.plugcubebuildersin.PlugCubeBuildersIn;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
+import uk.asheiou.bungeecompass.BungeeCompass;
+import uk.asheiou.bungeecompass.Compass;
+import uk.asheiou.bungeecompass.ServersConfigAccessor;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -34,10 +36,7 @@ public class MainMenu implements InventoryProvider {
     @Override
     public void init(Player player, InventoryContents contents) {
 
-        ItemStack borderGlass = new ItemStack(Material.WHITE_STAINED_GLASS_PANE); // White borders
-        ItemMeta borderGlassMeta = borderGlass.getItemMeta();
-        borderGlassMeta.setDisplayName(ChatColor.DARK_GRAY + " "); // remove name
-        borderGlass.setItemMeta(borderGlassMeta);
+        ItemStack borderGlass = Compass.getBorderGlass();
 
         contents.fillBorders(ClickableItem.empty(borderGlass));
 
