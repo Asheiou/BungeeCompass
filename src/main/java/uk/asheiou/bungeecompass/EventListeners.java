@@ -74,6 +74,7 @@ public class EventListeners implements Listener {
         CraftingInventory inventory = event.getInventory();
         boolean compassInInventory = false; // Default false
         for(ItemStack itemStack : inventory.getMatrix()){
+            if (itemStack == null) continue;
             if(Compass.isCompass(itemStack)) { // Check for compass in crafting table
                 compassInInventory = true;
                 break;
