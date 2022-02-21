@@ -1,6 +1,7 @@
 package uk.asheiou.bungeecompass;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import uk.asheiou.bungeecompass.command.BetaCommandExecutor;
 import uk.asheiou.bungeecompass.command.GiveCompassCommandExecutor;
 import uk.asheiou.bungeecompass.command.MenuCommandExecutor;
 import uk.asheiou.bungeecompass.command.ReloadCommandExecutor;
@@ -27,6 +28,7 @@ public final class BungeeCompass extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EventListeners(this), this);
         getLogger().info("Events registered.");
         // Register commands
+        this.getCommand("beta").setExecutor(new BetaCommandExecutor());
         this.getCommand("givecompass").setExecutor(new GiveCompassCommandExecutor());
         this.getCommand("menu").setExecutor(new MenuCommandExecutor());
         this.getCommand("reloadcompass").setExecutor(new ReloadCommandExecutor());

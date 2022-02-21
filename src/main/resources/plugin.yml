@@ -7,6 +7,11 @@ depend:
   - SmartInvs
   - PlugCubeBuildersIn
 commands:
+  beta:
+    description: Open the beta features menu
+    usage: /<command>
+    permission: bungeecompass.beta
+    permission-message: You don't have permission to participate in the betas. Donate to get access!
   givecompass:
     description: Receive a server compass
     usage: /<command>
