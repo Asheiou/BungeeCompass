@@ -5,7 +5,7 @@ author: Asheiou
 api-version: 1.17
 depend:
   - SmartInvs
-  - PlugCubeBuildersIn
+  - CubeCore
 commands:
   beta:
     description: Open the beta features menu

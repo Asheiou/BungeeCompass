@@ -38,7 +38,7 @@
         </dependency>
         <dependency>
             <groupId>io.siggi</groupId>
-            <artifactId>PlugCubeBuildersIn</artifactId>
+            <artifactId>CubeCore</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>

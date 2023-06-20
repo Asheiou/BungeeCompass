@@ -4,7 +4,7 @@ import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.content.InventoryContents;
 import fr.minuskube.inv.content.InventoryProvider;
 import fr.minuskube.inv.SmartInventory;
-import hk.siggi.bukkit.plugcubebuildersin.PlugCubeBuildersIn;
+import io.siggi.cubecore.bukkit.CubeCoreBukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -48,7 +48,7 @@ public class MainMenu implements InventoryProvider {
             Material material = Material.getMaterial(servers.getString(s+".item.material")); assert material != null;
             ItemStack itemStack = null;
             if (material == Material.PLAYER_HEAD) {
-                itemStack = PlugCubeBuildersIn.getInstance().createSkull(UUID.fromString(servers.getString(s + ".item.uuid")));
+                itemStack = CubeCoreBukkit.createPlayerHead(UUID.fromString(servers.getString(s + ".item.uuid")));
             } else {
                 itemStack = new ItemStack(material);
             }
