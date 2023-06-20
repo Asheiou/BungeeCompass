@@ -2,5 +2,5 @@
 A Bukkit plugin linking to BungeeCord to send players to a server
 
 ## Dependencies    
-- [PlugCubeBuildersIn](https://github.com/CubeBuilders/PlugCubeBuildersIn)    
+- [CubeCore](https://github.com/CubeBuilders/CubeCore)    
 - [SmartInvs](https://github.com/MinusKube/SmartInvs)
