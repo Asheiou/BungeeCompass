@@ -1,4 +1,4 @@
-package uk.asheiou.bungeecompass.menu;
+package cymru.asheiou.bungeecompass.menu;
 
 import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.SmartInventory;
@@ -12,7 +12,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
-import uk.asheiou.bungeecompass.BungeeCompass;
+import cymru.asheiou.bungeecompass.BungeeCompass;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import static uk.asheiou.bungeecompass.menu.MainMenu.SERVERSMENU;
+import static cymru.asheiou.bungeecompass.menu.MainMenu.SERVERSMENU;
 
 public class NewOldServersMenu implements InventoryProvider {
     private String new_server = null;

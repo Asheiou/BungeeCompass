@@ -1,4 +1,4 @@
-package uk.asheiou.bungeecompass;
+package cymru.asheiou.bungeecompass;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,7 +18,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import static uk.asheiou.bungeecompass.menu.MainMenu.SERVERSMENU;
+import static cymru.asheiou.bungeecompass.menu.MainMenu.SERVERSMENU;
 
 public class EventListeners implements Listener {
     private final JavaPlugin plugin;

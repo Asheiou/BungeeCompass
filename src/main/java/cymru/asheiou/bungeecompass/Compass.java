@@ -1,4 +1,4 @@
-package uk.asheiou.bungeecompass;
+package cymru.asheiou.bungeecompass;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

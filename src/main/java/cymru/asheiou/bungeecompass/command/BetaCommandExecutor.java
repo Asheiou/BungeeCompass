@@ -1,10 +1,10 @@
-package uk.asheiou.bungeecompass.command;
+package cymru.asheiou.bungeecompass.command;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import uk.asheiou.bungeecompass.menu.BetaMenu;
+import cymru.asheiou.bungeecompass.menu.BetaMenu;
 
 public class BetaCommandExecutor extends BetaMenu implements CommandExecutor {
     @Override

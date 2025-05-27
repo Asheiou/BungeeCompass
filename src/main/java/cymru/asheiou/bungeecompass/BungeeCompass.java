@@ -1,10 +1,10 @@
-package uk.asheiou.bungeecompass;
+package cymru.asheiou.bungeecompass;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import uk.asheiou.bungeecompass.command.BetaCommandExecutor;
-import uk.asheiou.bungeecompass.command.GiveCompassCommandExecutor;
-import uk.asheiou.bungeecompass.command.MenuCommandExecutor;
-import uk.asheiou.bungeecompass.command.ReloadCommandExecutor;
+import cymru.asheiou.bungeecompass.command.BetaCommandExecutor;
+import cymru.asheiou.bungeecompass.command.GiveCompassCommandExecutor;
+import cymru.asheiou.bungeecompass.command.MenuCommandExecutor;
+import cymru.asheiou.bungeecompass.command.ReloadCommandExecutor;
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package uk.asheiou.bungeecompass.menu;
+package cymru.asheiou.bungeecompass.menu;
 
 import fr.minuskube.inv.ClickableItem;
 import fr.minuskube.inv.content.InventoryContents;
@@ -13,9 +13,9 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
-import uk.asheiou.bungeecompass.BungeeCompass;
-import uk.asheiou.bungeecompass.Compass;
-import uk.asheiou.bungeecompass.ServersConfigAccessor;
+import cymru.asheiou.bungeecompass.BungeeCompass;
+import cymru.asheiou.bungeecompass.Compass;
+import cymru.asheiou.bungeecompass.ServersConfigAccessor;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

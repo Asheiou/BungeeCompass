@@ -1,5 +1,5 @@
 name: BungeeCompass
-main: uk.asheiou.bungeecompass.BungeeCompass
+main: cymru.asheiou.bungeecompass.BungeeCompass
 version: 1.0.2-SNAPSHOT
 author: Asheiou
 api-version: 1.17

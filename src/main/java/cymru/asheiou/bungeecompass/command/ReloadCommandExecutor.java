@@ -1,12 +1,12 @@
-package uk.asheiou.bungeecompass.command;
+package cymru.asheiou.bungeecompass.command;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
-import uk.asheiou.bungeecompass.BungeeCompass;
-import uk.asheiou.bungeecompass.ServersConfigAccessor;
+import cymru.asheiou.bungeecompass.BungeeCompass;
+import cymru.asheiou.bungeecompass.ServersConfigAccessor;
 
 public class ReloadCommandExecutor implements CommandExecutor  {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] strings) {

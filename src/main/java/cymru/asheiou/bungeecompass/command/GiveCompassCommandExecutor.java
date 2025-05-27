@@ -1,4 +1,4 @@
-package uk.asheiou.bungeecompass.command;
+package cymru.asheiou.bungeecompass.command;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import uk.asheiou.bungeecompass.Compass;
+import cymru.asheiou.bungeecompass.Compass;
 
 public class GiveCompassCommandExecutor implements CommandExecutor {
     @Override
