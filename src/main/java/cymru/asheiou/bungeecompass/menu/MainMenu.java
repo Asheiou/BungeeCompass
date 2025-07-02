@@ -55,14 +55,12 @@ public class MainMenu implements InventoryProvider {
       if (material == Material.PLAYER_HEAD) {
         AsyncValue<UserInfo> future = CubeCore.getUserDatabase().getByUniqueId(UUID.fromString(
                 servers.getString(s + ".item.uuid")));
-
-        future.then((e, throwable) -> {
-          if (throwable == null)
-            itemStack[0] = CubeCoreBukkit.createPlayerHead(e);
-          else
-            new ItemStack(Material.PLAYER_HEAD);
-          return null;
-        });
+        UserInfo u = future.getCompletableFuture().join();
+        if (u != null) {
+          itemStack[0] = CubeCoreBukkit.createPlayerHead(u);
+        } else {
+          itemStack[0] = new ItemStack(Material.PLAYER_HEAD);
+        }
       } else {
         itemStack[0] = new ItemStack(material);
       }
